@@ -85,6 +85,13 @@
 .highlight .ss {
   color: #90a959;
 }
+h5 {
+  font-size: 20px !important;
+  margin-top: 0px !important;
+}
+/* .tocify-subheader {
+  padding-left:10px !important;
+} */
     </style>
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
@@ -198,7 +205,8 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 
 <p><code class="prettyprint">access_token=a70bf52c9d649675152485e2c9b15cf9b2fc3ebb54628944ebd52e293813fbdc</code></p>
 
-<h1 id="reverse-geocode">Reverse Geocode</h1>
+<h1 id="elemental">Elemental</h1>
+<h2 id="reverse-geocode">Reverse Geocode</h2>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/reverse_geocode.json"</span><span class="p">,</span> <span class="p">{</span>
         <span class="ss">params: </span><span class="p">{</span><span class="ss">:latitude</span> <span class="o">=&gt;</span> <span class="s1">'12.9306361'</span><span class="p">,</span> <span class="ss">:longitude</span> <span class="o">=&gt;</span> <span class="s1">'77.5783206'</span><span class="p">}</span>
@@ -299,7 +307,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — suggestion and related info successfully retrieved.
 </aside>
 
-<h1 id="auto-complete">Auto complete</h1>
+<h2 id="auto-complete">Auto complete</h2>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/autocomplete.json"</span><span class="p">,</span> <span class="p">{</span>
         <span class="ss">params: </span><span class="p">{</span><span class="ss">:query</span> <span class="o">=&gt;</span> <span class="s1">'beng'</span><span class="p">}</span>
@@ -393,9 +401,9 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — suggestion and related info successfully retrieved.
 </aside>
 
-<h1 id="search">Search</h1>
+<h2 id="search">Search</h2>
 
-<h2 id="store-search-within-location">Store search within location</h2>
+<h5 id="store-search-within-location">Store search within location</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/brands/[brand_id]/find.json"</span><span class="p">,</span> <span class="p">{</span>
         <span class="ss">params: </span><span class="p">{</span><span class="ss">:query</span> <span class="o">=&gt;</span> <span class="s1">'bengaluru'</span><span class="p">}</span>
@@ -533,7 +541,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h2 id="store-search-around-geo-point">Store search around geo point</h2>
+<h5 id="store-search-around-geo-point">Store search around geo point</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/brands/[brand_id]/stores_around.json"</span><span class="p">,</span> <span class="p">{</span>
         <span class="ss">params: </span><span class="p">{</span><span class="ss">:lat</span> <span class="o">=&gt;</span> <span class="mi">12</span><span class="o">.</span><span class="mi">976182</span> <span class="p">,</span><span class="ss">:long</span> <span class="o">=&gt;</span> <span class="mi">77</span><span class="o">.</span><span class="mi">570901</span><span class="p">}</span>
@@ -640,7 +648,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h1 id="location-specifier">Location Specifier</h1>
+<h2 id="location-specifier">Location Specifier</h2>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/get_ls.json"</span><span class="p">,</span> <span class="p">{</span>
         <span class="ss">params: </span><span class="p">{</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s1">'240090126'</span><span class="p">}</span>
@@ -707,9 +715,9 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — suggestion and related info successfully retrieved.
 </aside>
 
-<h1 id="stores">Stores</h1>
+<h2 id="stores">Stores</h2>
 
-<h2 id="store-details">Store details</h2>
+<h5 id="store-details">Store details</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/brands/[brand_id]/stores/[store_id].json"</span>
 </code></pre>
@@ -794,7 +802,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h2 id="store-metadata">Store Metadata</h2>
+<h5 id="store-metadata">Store Metadata</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/brands/[brand_id]/stores/[store_id]/metadata.json"</span>
 </code></pre>
@@ -865,7 +873,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h2 id="store-places">Store places</h2>
+<h5 id="store-places">Store places</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/brands/[brand_id]/places.json"</span>
 </code></pre>
@@ -926,7 +934,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — suggestion and related info successfully retrieved.
 </aside>
 
-<h2 id="all-stores">All Stores</h2>
+<h5 id="all-stores">All Stores</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/brands/[brand_id]/stores.json"</span>
 </code></pre>
@@ -1010,7 +1018,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h2 id="store-count-state-level">Store Count - State level</h2>
+<h5 id="store-count-state-level">Store Count - State level</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/brands/[brand_id]/counts.json"</span>
 </code></pre>
@@ -1085,9 +1093,11 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h1 id="direction">Direction</h1>
 
-<h2 id="search-landmarks">Search Landmarks</h2>
+
+<h2 id="direction">Direction</h2>
+
+<h5 id="search-landmarks">Search Landmarks - (Superseded by Landmarkl)</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/search_landmarks.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:lat</span> <span class="o">=&gt;</span> <span class="mi">12</span><span class="o">.</span><span class="mi">9306361</span><span class="p">,</span> <span class="ss">:lon</span> <span class="o">=&gt;</span> <span class="mi">77</span><span class="o">.</span><span class="mi">5783206</span><span class="p">}</span>
@@ -1185,7 +1195,97 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h2 id="get-direction">Get Direction</h2>
+<h5 id="landmarks">Landmarks</h5>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/landmarks.json"</span><span class="p">,</span> <span class="p">{</span>
+  <span class="ss">params: </span><span class="p">{</span><span class="ss">:lat</span> <span class="o">=&gt;</span> <span class="mi">12</span><span class="o">.</span><span class="mi">918409626411</span><span class="p">,</span> <span class="ss">:lon</span> <span class="o">=&gt;</span> <span class="mi">77</span><span class="o">.</span><span class="mi">5239171300371</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight shell"><code>curl https://api.latlong.in/v2/landmarks.json?lat<span class="o">=</span>12.918409626411&amp;lon<span class="o">=</span>77.5239171300371 -H <span class="s1">'Authorization: Bearer &lt;ACCESS_TOKEN&gt;'</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">https</span><span class="err">:</span><span class="c1">//api.latlong.in/v2/landmarks.json?lat=12.918409626411&amp;lon=77.5239171300371</span>
+</code></pre>
+<pre class="highlight java"><code><span class="c1">// Java code goes here</span>
+
+<span class="c1">// Use any of the http client library for fetching rest service data</span>
+<span class="n">okhttp</span>   <span class="c1">//(http://square.github.io/okhttp/)</span>
+<span class="n">retrofit</span> <span class="c1">//(http://square.github.io/retrofit/)</span>
+
+<span class="c1">// Or Use Standard java libraries like </span>
+<span class="n">JAX</span><span class="o">-</span><span class="n">RS</span>   <span class="c1">//(http://docs.jboss.org/resteasy/docs/3.0.16.Final/userguide/html/RESTEasy_Client_Framework.html)</span>
+<span class="n">jersey</span>   <span class="c1">//(https://jersey.java.net/documentation/latest/client.html)</span>
+</code></pre>
+
+<blockquote>
+<p>The above API returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shakthi Hill Resorts Pvt Ltd"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3556769</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"geoproperty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINT (77.524373 12.918431)"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basaveshwara Devasthan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3496988</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"geoproperty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINT (77.523694 12.9176046)"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bhavani Medical Store"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3354789</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"geoproperty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINT (77.524305 12.917489)"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home stay Service apartment"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">183024</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"geoproperty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINT (77.522631 12.918514)"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns the 4 popular landmarks around the given point with its geo property .</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">https://api.latlong.in/v2/landmarks.json</code></p>
+
+<h4 id="example">example</h4>
+
+<p><code class="prettyprint">GET https://api.latlong.in/v2/landmarks.json?lat=12.918409626411&amp;lon=77.5239171300371</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Presence</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>lat</td>
+<td>integer/float</td>
+<td>must</td>
+<td>Latitude of the location</td>
+</tr>
+<tr>
+<td>lon</td>
+<td>integer/float</td>
+<td>must</td>
+<td>Longitude of the location</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+  you must add your <code>access_token</code> with all API request
+</aside>
+
+<aside class="success">
+200 — Store search and related info successfully retrieved.
+</aside>
+
+<h5 id="get-direction">Get Direction</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/directions.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span> <span class="ss">:from</span> <span class="o">=&gt;</span> <span class="mi">240031566</span><span class="p">,</span> <span class="ss">:to</span> <span class="o">=&gt;</span> <span class="mi">240090126</span><span class="p">}</span>
@@ -1297,7 +1397,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h2 id="pgroute">PgRoute</h2>
+<h5 id="pgroute">PgRoute</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/route.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:source</span> <span class="o">=&gt;</span> <span class="mi">670000042</span><span class="p">,</span> <span class="ss">:target</span> <span class="o">=&gt;</span> <span class="mi">670000039</span><span class="p">}</span>
@@ -1375,9 +1475,9 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h1 id="sms">SMS</h1>
+<h2 id="sms">SMS</h2>
 
-<h2 id="send-otp">Send OTP</h2>
+<h5 id="send-otp">Send OTP</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/otp.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:mobile_number</span> <span class="o">=&gt;</span> <span class="mi">1234567890</span><span class="p">}</span>
@@ -1442,7 +1542,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h2 id="send-sms-response">Send SMS response</h2>
+<h5 id="send-sms-response">Send SMS response</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/brands/[brand_id]/stores/[store_id]/send_sms.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:mobile_number</span> <span class="o">=&gt;</span> <span class="mi">1234567890</span><span class="p">}</span>
@@ -1519,10 +1619,8 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h1 id="geo">Geo</h1>
-
-
-<h2 id="distance">Distance</h2>
+<h2 id="geo">Geo</h2>
+<h5 id="distance">Distance</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/dist_latlong.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:latitude1</span> <span class="o">=&gt;</span> <span class="mi">8.170721</span><span class="p">, </span><span class="ss">:longitude1</span> <span class="o">=&gt;</span> <span class="mi">77.432236</span><span class="p">, </span><span class="ss">:latitude2</span> <span class="o">=&gt;</span> <span class="mi">12.9306361</span><span class="p">, </span><span class="ss">:longitude2</span> <span class="o">=&gt;</span> <span class="mi">77.5783206</span><span class="p">}</span>
@@ -1606,7 +1704,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Distance related info successfully retrieved.
 </aside>
 
-<h2 id="aerial_distance">Aerial Distance</h2>
+<h5 id="aerial_distance">Aerial Distance</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/aerial_distance.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:source</span> <span class="o">=&gt;</span> <span class="mi">12.8810313,77.5806633</span><span class="p">, </span><span class="ss">:destination1</span> <span class="o">=&gt;</span> <span class="mi">12.891591,77.581830</span><span class="p">, </span><span class="ss">:destination2</span> <span class="o">=&gt;</span> <span class="mi">12.874352,77.584126</span><span class="p">, </span><span class="ss">:destination3</span> <span class="o">=&gt;</span> <span class="mi">12.897889,77.571713</span><span class="p">, </span><span class="ss">:destination4</span> <span class="o">=&gt;</span> <span class="mi">12.930749,77.580082</span><span class="p">, </span><span class="ss">:destination5</span> <span class="o">=&gt;</span> <span class="mi">12.884544,77.551715</span><span class="p">}</span>
@@ -1709,7 +1807,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Distance related info successfully retrieved.
 </aside>
 
-<h2 id="driving_distance">Driving Distance</h2>
+<h5 id="driving_distance">Driving Distance</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/driving_distance.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:source</span> <span class="o">=&gt;</span> <span class="mi">12.8810313,77.5806633</span><span class="p">, </span><span class="ss">:destination1</span> <span class="o">=&gt;</span> <span class="mi">12.891591,77.581830</span><span class="p">, </span><span class="ss">:destination2</span> <span class="o">=&gt;</span> <span class="mi">12.874352,77.584126</span><span class="p">, </span><span class="ss">:destination3</span> <span class="o">=&gt;</span> <span class="mi">12.897889,77.571713</span><span class="p">, </span><span class="ss">:destination4</span> <span class="o">=&gt;</span> <span class="mi">12.930749,77.580082</span><span class="p">, </span><span class="ss">:destination5</span> <span class="o">=&gt;</span> <span class="mi">12.884544,77.551715</span><span class="p">}</span>
@@ -1812,8 +1910,78 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Distance related info successfully retrieved.
 </aside>
 
+<h2 id="geo-code">Geocode</h2>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://geoapi.latlong.in/v2/geocode.json"</span><span class="p">,</span> <span class="p">{</span>
+  <span class="ss">params: </span><span class="p">{</span><span class="ss">:address</span> <span class="o">=&gt;</span> <span class="mi">1st main road, rr nagar, 560098</span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<pre class="highlight shell"><code>curl  https://geoapi.latlong.in/v2/geocode.json?address=1st main road, rr nagar, 560098 -H <span class="s1">'Authorization: Bearer &lt;ACCESS_TOKEN&gt;'</span>
+</code></pre>
+<pre class="highlight javascript"><code><span class="nx">https</span><span class="err">:</span><span class="c1">//geoapi.latlong.in/v2/geocode.json?address=1st main road, rr nagar, 560098</span>
+</code></pre>
+<pre class="highlight java"><code><span class="c1">// Java code goes here</span>
 
-<h2 id="geo-verfication">Geo verification</h2>
+<span class="c1">// Use any of the http client library for fetching rest service data</span>
+<span class="n">okhttp</span>   <span class="c1">//(http://square.github.io/okhttp/)</span>
+<span class="n">retrofit</span> <span class="c1">//(http://square.github.io/retrofit/)</span>
+
+<span class="c1">// Or Use Standard java libraries like </span>
+<span class="n">JAX</span><span class="o">-</span><span class="n">RS</span>   <span class="c1">//(http://docs.jboss.org/resteasy/docs/3.0.16.Final/userguide/html/RESTEasy_Client_Framework.html)</span>
+<span class="n">jersey</span>   <span class="c1">//(https://jersey.java.net/documentation/latest/client.html)</span>
+</code></pre>
+
+<blockquote>
+<p>The above API returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">12.918409626411</span><span class="p">,</span>
+    <span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="s2">77.5239171300371</span>
+    <span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint verifies the given latlong point with the address parameters .</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://geoapi.latlong.in/v2/geocode.json</code></p>
+
+<h4 id="example">example</h4>
+
+<p><code class="prettyprint">GET https://geoapi.latlong.in/v2/geocode.json?address=1st main road, rr nagar, 560098</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Presence</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>address</td>
+<td>text</td>
+<td>must</td>
+<td>Area Address</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+  you must add your <code>access_token</code> with all API request
+</aside>
+
+<aside class="success">
+200 — Geo verification info successfully retrieved.
+</aside>
+
+
+<h1 id="Compound">Compound</h1>
+
+<h2 id="geo">Geo</h2>
+<h5 id="geo-verfication">Geo verification</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/geo_latlong.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:latitude</span> <span class="o">=&gt;</span> <span class="mi">12.916227, </span><span class="ss">:longitude</span> <span class="o">=&gt;</span> <span class="mi">77.555880, </span><span class="ss">:pincode</span> <span class="o">=&gt;</span> <span class="mi">560070, </span><span class="ss">:state</span> <span class="o">=&gt;</span> <span class="mi">karnataka, </span><span class="ss">:city</span> <span class="o">=&gt;</span> <span class="mi">bangalore,</span><span class="ss">:district</span> <span class="o">=&gt;</span> <span class="mi">Mysore</span><span class="p">}</span>
@@ -1923,7 +2091,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Geo verification info successfully retrieved.
 </aside>
 
-<h2 id="Geovalidationplus">Geovalidationplus</h2>
+<h5 id="Geovalidationplus">Geovalidationplus</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://geoapi.latlong.in/v2/geovalidationplus.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:latitude</span> <span class="o">=&gt;</span> <span class="mi">12.9306361, </span><span class="ss">:longitude</span> <span class="o">=&gt;</span> <span class="mi">77.5783206, </span><span class="ss">:address</span> <span class="o">=&gt;</span> <span class="mi">1st main road, rr nagar, 560098, </span><span class="p">}</span>
@@ -2048,15 +2216,15 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Geo validation info successfully retrieved.
 </aside>
 
-<h1 id="geo-code">Geocode</h1>
+<h2 id="landmarks">Landmarks</h2>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
-<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://geoapi.latlong.in/v2/geocode.json"</span><span class="p">,</span> <span class="p">{</span>
+<span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/landmarks.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:address</span> <span class="o">=&gt;</span> <span class="mi">1st main road, rr nagar, 560098</span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight shell"><code>curl  https://geoapi.latlong.in/v2/geocode.json?address=1st main road, rr nagar, 560098 -H <span class="s1">'Authorization: Bearer &lt;ACCESS_TOKEN&gt;'</span>
+<pre class="highlight shell"><code>curl https://api.latlong.in/v2/landmarks.json?address<span class="o">=</span>1st main road, rr nagar, 560098 -H <span class="s1">'Authorization: Bearer &lt;ACCESS_TOKEN&gt;'</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">https</span><span class="err">:</span><span class="c1">//geoapi.latlong.in/v2/geocode.json?address=1st main road, rr nagar, 560098</span>
+<pre class="highlight javascript"><code><span class="nx">https</span><span class="err">:</span><span class="c1">//api.latlong.in/v2/landmarks.json?address=1st main road, rr nagar, 560098</span>
 </code></pre>
 <pre class="highlight java"><code><span class="c1">// Java code goes here</span>
 
@@ -2072,21 +2240,39 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 <blockquote>
 <p>The above API returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"lat"</span><span class="p">:</span><span class="w"> </span><span class="s2">12.918409626411</span><span class="p">,</span>
-    <span class="nt">"long"</span><span class="p">:</span><span class="w"> </span><span class="s2">77.5239171300371</span>
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shakthi Hill Resorts Pvt Ltd"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3556769</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"geoproperty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINT (77.524373 12.918431)"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Basaveshwara Devasthan"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3496988</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"geoproperty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINT (77.523694 12.9176046)"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bhavani Medical Store"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3354789</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"geoproperty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINT (77.524305 12.917489)"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Home stay Service apartment"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">183024</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"geoproperty"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POINT (77.522631 12.918514)"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint verifies the given latlong point with the address parameters .</p>
+<p>This endpoint returns the 4 popular landmarks around the given address with its geo property. This API calls the geocode API internally to get the latlong for the given address.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://geoapi.latlong.in/v2/geocode.json</code></p>
+<p><code class="prettyprint">https://api.latlong.in/v2/landmarks.json</code></p>
 
 <h4 id="example">example</h4>
 
-<p><code class="prettyprint">GET https://geoapi.latlong.in/v2/geocode.json?address=1st main road, rr nagar, 560098</code></p>
+<p><code class="prettyprint">GET https://api.latlong.in/v2/landmarks.json?address=1st main road, rr nagar, 560098</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -2102,7 +2288,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 <td>address</td>
 <td>text</td>
 <td>must</td>
-<td>Area Address</td>
+<td>Address</td>
 </tr>
 </tbody></table>
 
@@ -2111,10 +2297,11 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 </aside>
 
 <aside class="success">
-200 — Geo verification info successfully retrieved.
+200 — Store search and related info successfully retrieved.
 </aside>
 
-          <h1 id="errors">Errors</h1>
+
+<h1 id="errors">Errors</h1>
 
 <p>Latlong API gives below specified error codes depending on the criteria:</p>
 
