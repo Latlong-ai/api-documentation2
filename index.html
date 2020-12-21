@@ -1195,7 +1195,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 200 — Store search and related info successfully retrieved.
 </aside>
 
-<h5 id="landmarks_elemental">Search Landmarks</h5>
+<h5 id="landmarks">Search Landmarks</h5>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/landmarks.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:lat</span> <span class="o">=&gt;</span> <span class="mi">12</span><span class="o">.</span><span class="mi">918409626411</span><span class="p">,</span> <span class="ss">:lon</span> <span class="o">=&gt;</span> <span class="mi">77</span><span class="o">.</span><span class="mi">5239171300371</span><span class="p">}</span>
@@ -1980,7 +1980,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 
 
 <h1 id="Compound">Compound</h1>
-<h2 id="landmarks_compound">Landmarks</h2>
+<h2 id="landmarks_with_geocode">Landmarks</h2>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/landmarks.json"</span><span class="p">,</span> <span class="p">{</span>
   <span class="ss">params: </span><span class="p">{</span><span class="ss">:address</span> <span class="o">=&gt;</span> <span class="mi">1st main road, rr nagar, 560098</span><span class="p">}</span>
