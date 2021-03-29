@@ -1379,7 +1379,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 
 <p>Type values : </p>
 
-<p>1 - Direction from geoid to geoid <br/>
+<p>1 - Direction from geo id to geo id <br/>
 2 - Direction from place to place<br/>
 3 - Direction from geo point to geo point<br/>
 4 - Direction from geo point to geo id<br/>
@@ -1981,12 +1981,12 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 <h2 id="location-details">Location Details</h2>
 <pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
 <span class="n">response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="p">.</span><span class="nf">get</span> <span class="s2">"https://api.latlong.in/v2/location_details.json"</span><span class="p">,</span> <span class="p">{</span>
-  <span class="ss">params: </span><span class="p">{</span><span class="ss">:latitude</span> <span class="o">=&gt;</span> <span class="mi">12.916227, </span><span class="ss">:longitude</span> <span class="o">=&gt;</span> <span class="mi">77.555880, </span><span class="p">}</span>
+  <span class="ss">params: </span><span class="p">{</span><span class="ss">:location</span> <span class="o">=&gt;</span> <span class="mi">12.916227, 77.555880</span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<pre class="highlight shell"><code>curl  https://api.latlong.in/v2/location_details.json?latitude=12.916227&longitude=77.555880 -H <span class="s1">'Authorization: Bearer &lt;ACCESS_TOKEN&gt;'</span>
+<pre class="highlight shell"><code>curl  https://api.latlong.in/v2/location_details.json?location=12.916227, 77.555880 -H <span class="s1">'Authorization: Bearer &lt;ACCESS_TOKEN&gt;'</span>
 </code></pre>
-<pre class="highlight javascript"><code><span class="nx">https</span><span class="err">:</span><span class="c1">//api.latlong.in/v2/location_details.json?latitude=12.916227&longitude=77.555880</span>
+<pre class="highlight javascript"><code><span class="nx">https</span><span class="err">:</span><span class="c1">//api.latlong.in/v2/location_details.json?location=12.916227, 77.555880</span>
 </code></pre>
 <pre class="highlight java"><code><span class="c1">// Java code goes here</span>
 
@@ -2009,7 +2009,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint returns the Pincode, City and State for the given geo point.</p>
+<p>This endpoint returns the Pincode, City and State for the given geo point or Pincode or Geo id .</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2017,7 +2017,7 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 
 <h4 id="example">example</h4>
 
-<p><code class="prettyprint">GET https://api.latlong.in/v2/location_details.json?latitude=12.916227&longitude=77.555880</code></p>
+<p><code class="prettyprint">GET https://api.latlong.in/v2/location_details.json?location=12.916227, 77.555880</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -2030,16 +2030,10 @@ curl https://api.latlong.in/v2/search.json?query<span class="o">=</span>STRING -
 </tr>
 </thead><tbody>
 <tr>
-<td>latitude</td>
+<td>location</td>
 <td>integer/float</td>
 <td>must</td>
-<td>coordinate latitude</td>
-</tr>
-<tr>
-<td>longitude</td>
-<td>integer/float</td>
-<td>must</td>
-<td>coordinate longitude</td>
+<td>Coordinates / Pincode / Geo id</td>
 </tr>
 </tbody></table>
 
