@@ -176,7 +176,7 @@
           endpoints, which can get information on various location based
           services like driving distance, geocode/geosearch, reverse geocode,
           locality based driving directions, locality based auto-complete and
-          many more in to come related to maps.
+          many more related to maps.
         </p>
 
         <p>
@@ -286,10 +286,7 @@
 
         <p>
           This endpoint returns matched location suggestion along with their
-          unique identity number based on entered characters. API initially
-          tries to match entered text within user&rsquo;s state. If it
-          don&rsquo;t find any results then it will searches for match in India
-          level. Results are populated based on their popularity.
+          unique identity number, latitude and longitude based on entered characters. If the browser location is ON then the API initially tries to match entered text within user&rsquo;s state else the API matches any results within country(India) level. The results are populated based on their popularity.
         </p>
 
         <h3 id="http-request">HTTP Request</h3>
@@ -771,7 +768,6 @@
   <h2 id="geocode_elemental">Geocode</h2>
        
   <h5 id="geocode">Geocode</h5>
-  <h4>Coming Soon ...! </h4> 
         <blockquote>
           <p>The above API returns JSON structured like this:</p>
         </blockquote>
@@ -779,9 +775,9 @@
   <code><span class="p">{</span>
     <span class="nt">"status"</span><span class="p">:</span><span class="p">"Success"</span><span class="p">, </span>
     <span class="nt">"data"</span><span class="p">:</span><span class="p">{</span><span class="w">
-      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"",</span><span class="w">
-      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"",</span><span class="w">
-      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
+      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a1106,Purva Heights, Banerghatta Road, Bangalore 560076",</span><span class="w">
+      </span><span class="nt">"latitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12.904466",</span><span class="w">
+      </span><span class="nt">"longitude"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77.602404"</span>
     <span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -802,7 +798,9 @@
 
         <p>
           <code class="prettyprint"
-            >GET
+            >GET 
+https://api.latlong.ai/v3/geocode.json?access_token=WCafiZcmbm-seV_bNpxlcgkV0W2JbU1lg-CWJ0QfrPA&address=a1106,Purva%20Heights,%20Banerghatta%20Road,%20Bangalore%20560076
+
             </code
           >
         </p>
@@ -837,6 +835,7 @@
         </aside>
 
   <h5 id="reverse-geocode">Reverse Geocode</h5>
+  
   <pre
     class="highlight ruby"
   ><code><span class="nb">require</span> <span class="s1">'rest-client'</span>
@@ -851,7 +850,7 @@
 </code></pre>
         <pre
           class="highlight javascript"
-        ><code><span class="nx">https</span><span class="err">:</span><span class="c1">//api.latlong.in/v2/reverse_geocode.json?latitude=12.9306361&amp;longitude=77.5783206</span>
+        ><code><span class="nx">https</span><span class="err">:</span><span class="c1">//api.latlong.in/v2/reverse_geocode.json?latitude=12.9306361&amp;longitude=77.5783206&details=false</span>
 </code></pre>
         <pre
           class="highlight java"
@@ -875,7 +874,7 @@
     <span class="nt">"data"</span><span class="p">:</span><span class="p">{</span><span class="w">
       </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7th block ,Jayanagar ,Bengaluru,Karnataka",</span><span class="w">
       </span><span class="nt">"pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"560070",</span><span class="w">
-      </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"< 0.5 km from Nanda Talkies Road-Ganesha Temple Signal, ~ 0.5 km from Yediyur Maternity Hospital Junction"</span>
+      </span><span class="nt">"landmark"</span><span class="p">:</span><span class="w"> </span><span class="s2">"< 0.5 km from Nanda Talkies Road-Ganesha Temple Signal, ~ 0.5 km from Yediyur Maternity Hospital Junction"</span>
     <span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -897,7 +896,7 @@
         <p>
           <code class="prettyprint"
             >GET
-            https://api.latlong.ai/v3/reverse_geocode.json?latitude=12.9306361&amp;longitude=77.5783206</code
+            https://api.latlong.ai/v3/reverse_geocode.json?latitude=12.9306361&amp;longitude=77.5783206&details=false</code
           >
         </p>
 
@@ -924,6 +923,12 @@
               <td>integer/float</td>
               <td>must</td>
               <td>Longitude of the location</td>
+            </tr>
+            <tr>
+              <td>details</td>
+              <td>boolean</td>
+              <td>must</td>
+              <td>true/false. By default this is set to false and returns the response with address, pincode, landmark else if true is supplied then we get address,locality(deatils of each locality), pincode,landmark</td>
             </tr>
           </tbody>
         </table>
